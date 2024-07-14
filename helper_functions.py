@@ -11,8 +11,8 @@ def generate_data():
     synth = RegularSynthesizer(modelname='ctgan', model_parameters=ctgan_args)    
     return synth, train_args
     
-def synthetic_data_model(model_dir, model):
-    model = RegularSynthesizer.load(model_dir + model)
+def synthetic_data_model(model_path):
+    model = RegularSynthesizer.load(model_path)
     return model
 
 def patient_id_and_date(df):
