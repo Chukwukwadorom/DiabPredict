@@ -21,3 +21,19 @@ def patient_id_and_date(df):
     df["datetime"] = pd.to_datetime('today')
 
     return df 
+
+def clean_up(df):
+
+    duplicates = df.duplicated()
+    df = df[~duplicates]
+
+    df["bmi"] = df["bmi"].round(2)
+    df["HbA1c_level"] = df["HbA1c_level"].round(1)
+
+    conditions = (
+    (df['age'] >= 1) & (df['age'] <= 120) &
+    (df['bmi'] >= 10) & (df['bmi'] <= 100) &
+    (df['HbA1c_level'] >= 3) & (df['HbA1c_level'] <= 15) &
+    (df['blood_glucose_level'] >= 50) & (df['blood_glucose_level'] <= 400))
+
+    return df[conditions]
