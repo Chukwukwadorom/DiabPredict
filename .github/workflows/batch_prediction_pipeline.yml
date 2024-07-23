@@ -1,0 +1,33 @@
+name: Batch Prediction Pipeline
+
+on:
+  workflow_dispatch:  
+  # schedule:
+  #   - cron: '0 3 * * *'  # daily at 3 AM
+
+jobs:
+  batch_prediction_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Content
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10.14'
+
+      - name: Install Python Packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Set up Hopsworks API Key
+        run: echo "HOPSWORKS_KEY=${{ secrets.HOPSWORKS_KEY }}" >> $GITHUB_ENV
+
+      - name: Execute Batch Prediction Pipeline Notebook
+        env:
+          HOPSWORKS_KEY: ${{ secrets.HOPSWORKS_KEY }}
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/batch_prediction_pipeline.ipynb
