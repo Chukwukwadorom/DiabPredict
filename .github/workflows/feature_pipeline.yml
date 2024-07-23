@@ -1,0 +1,33 @@
+name: Feature Pipeline
+
+on:
+  # schedule:
+  #   - cron: '0 0 * * 1' # Runs every Monday at midnight
+  workflow_dispatch:
+
+jobs:
+  feature_pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set up Hopsworks API Key
+      run: echo "HOPSWORKS_KEY=${{ secrets.HOPSWORKS_KEY }}" >> $GITHUB_ENV
+
+    - name: Run Feature Pipeline Notebook
+      env:
+        HOPSWORKS_KEY: ${{ secrets.HOPSWORKS_KEY }}
+      run: |
+        jupyter nbconvert --to notebook --execute notebooks/feature_pipeline.ipynb
