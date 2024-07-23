@@ -2,14 +2,15 @@ catboost==1.2.5
 hopsworks==3.7.0
 hsfs==3.7.6
 hsml==3.7.1
+matplotlib==3.9.1
 nbconvert==7.16.4
 numpy==1.26.4
 pandas==2.1.4
-plotly
 Pillow
 plotly
-python-dotenv
 pytest==7.4.4
+python-dotenv
 scikit-learn
 seaborn==0.13.2
 streamlit_folium
+ydata-synthetic==1.4.0
