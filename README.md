@@ -1,4 +1,4 @@
-# H1 DiabPredict
+# DiabPredict
 
 The goal of DiabPredict is to provide a reliable and efficient way to predict the likelihood of diabetes in patients. The project leverages machine learning techniques to analyze patient data and identify patterns that could indicate the presence of diabetes. The models are trained using a dataset containing various health metrics, and the project includes a feature engineering pipeline to enhance the predictive power of the models.
 
