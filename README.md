@@ -18,32 +18,46 @@ Detailed instructions for each pipeline can be found in the project documentatio
 
 
 
-Installation
-To run this project locally, follow these steps:
+Installation Instructions
+Clone the Repository
 
-Clone the repository:
-
-bash
+```bash
 Copy code
 git clone https://github.com/Chukwukwadorom/DiabPredict.git
-Navigate to the project directory:
-
-bash
-Copy code
 cd DiabPredict
-Set up a virtual environment and activate it:
+```
 
-bash
+Build Docker Image
+
+Ensure you have Docker installed. Build the Docker image using:
+
+```bash
 Copy code
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install the required dependencies:
+sudo docker build -t diabpredict-streamlit-image .
+Run the Docker Container
+```
 
-bash
+To run the application, use:
+
+```bash
 Copy code
-pip install -r requirements.txt
-Usage
-To use the DiabPredict models:
+sudo docker run -d -p 8501:8501 --name diabpredict-streamlit-container --env-file .env diabpredict-streamlit-image
+```
+The application will be accessible at http://localhost:8501.
 
+Usage Instructions
+Environment Variables
 
+Create a .env file in the project root with necessary environment variables. Example:
 
+env
+Copy code
+```
+MLFLOW_TRACKING_URI=http://localhost:5000
+HOPSWORKS_PROJECT_ID=your_project_id
+HOPSWORKS_API_KEY=your_api_key
+```
+
+Running the Application
+
+The Streamlit app can be accessed via the web browser at http://localhost:8501. The app allows you to input features and get predictions on diabetes.
