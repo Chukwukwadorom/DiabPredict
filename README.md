@@ -10,13 +10,11 @@ the project is broken into the following pipelines:
 - [Batch prediction pipeline](#batch-prediction-pipeline)
 
 
-Backfill Feature Pipeline: Initially fill the feature group with historical data.
-Regular Update Pipeline: Regularly update the feature group with new data.
-Training Pipeline: Train the model using the prepared data.
-Prediction Pipeline: Use the model to make predictions on new data.
+Backfill Feature Pipeline: Initially fill the feature group with historical data.<br>
+Replinshment pipeline: Regularly update the feature group with new data.<br>
+Training Pipeline: Train the model using the prepared data.<br>
+Prediction Pipeline: Use the model to make predictions on new data.<br>
 Detailed instructions for each pipeline can be found in the project documentation.
-
-
 
 Installation Instructions
 Clone the Repository
