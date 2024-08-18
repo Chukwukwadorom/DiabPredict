@@ -22,7 +22,6 @@ Installation Instructions
 Clone the Repository
 
 ```bash
-Copy code
 git clone https://github.com/Chukwukwadorom/DiabPredict.git
 cd DiabPredict
 ```
@@ -32,7 +31,6 @@ Build Docker Image
 Ensure you have Docker installed. Build the Docker image using:
 
 ```bash
-Copy code
 sudo docker build -t diabpredict-streamlit-image .
 Run the Docker Container
 ```
@@ -40,7 +38,6 @@ Run the Docker Container
 To run the application, use:
 
 ```bash
-Copy code
 sudo docker run -d -p 8501:8501 --name diabpredict-streamlit-container --env-file .env diabpredict-streamlit-image
 ```
 The application will be accessible at http://localhost:8501.
@@ -50,8 +47,7 @@ Environment Variables
 
 Create a .env file in the project root with necessary environment variables. Example:
 
-env
-Copy code
+
 ```
 MLFLOW_TRACKING_URI=http://localhost:5000
 HOPSWORKS_PROJECT_ID=your_project_id
