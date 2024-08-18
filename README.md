@@ -25,7 +25,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/DiabPredict.git
+git clone https://github.com/Chukwukwadorom/DiabPredict.git
 Navigate to the project directory:
 
 bash
